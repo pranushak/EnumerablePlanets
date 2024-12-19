@@ -9,6 +9,31 @@
 </head>
 <body>
 <h1>Pick a planet:</h1>
+    <ol>
+        <li th:each="planet : ${planets}" th:text="${planet.displayName}"></li>
+    </ol>
 
+    <div class="form-group">
+        <label>Planets
+            <select>
+                <option th:each="planet : ${planets}"
+                    th:value="${planet}"
+                        th:text="${planet.displayName}">
+                </option>
+            </select>
+        </label>
+    </div>
+    <table class="table table-strioped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Years Length</th>
+        </tr>
+        <tr th:each="planet : ${planets}">
+            <td th:text="${planet.displayName}"></td>
+            <td th:text="${planet.yearLength} + ' Earth days in one year.' "></td>
+        </tr>
+        </thead>
+    </table>
 </body>
 </html>
